@@ -6,8 +6,8 @@ ruby '2.6.3'
 
 gem 'rails', '~> 5.2.3'
 
-#gem 'sqlite3'
-gem 'mysql2'
+
+gem "mysql2", ">= 0.4.4", "< 0.6.0"
 
 gem 'puma', '~> 3.11'
 
@@ -24,6 +24,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'pry-doc'
+
   gem 'rubocop-rails'
 end
 
