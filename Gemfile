@@ -3,7 +3,6 @@ git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 
 ruby "2.6.3"
 
-
 gem "active_model_serializers", "~> 0.10.0"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "devise_token_auth"
@@ -29,7 +28,6 @@ group :development do
   gem "annotate"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
-
 end
 
 group :test do
