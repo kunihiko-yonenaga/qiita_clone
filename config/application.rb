@@ -30,10 +30,8 @@ module QiitaClone
       g.template_engine false
       g.javascripts false
       g.stylesheets false
-      g.helper false
+      g.helper true
       g.test_framework :rspec,
-                       fixtures: true,
-                       fixture_replacement: :factory_bot,
                        view_specs: false,
                        routing_specs: false,
                        helper_specs: false,
