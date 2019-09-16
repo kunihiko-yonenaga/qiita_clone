@@ -236,6 +236,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   annotate
   bootsnap (>= 1.1.0)
+  devise
   devise_token_auth
   factory_bot_rails
   faker
@@ -254,7 +255,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
-  webpacker
+  webpacker (~> 4.x)
 
 RUBY VERSION
    ruby 2.6.3p62
