@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    render json: Article.all
+    articles = Article.all
+    render json: articles
   end
 end
