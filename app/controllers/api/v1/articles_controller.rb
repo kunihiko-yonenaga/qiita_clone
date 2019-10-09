@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+class ArticlesController < BaseApiController
   before_action :set_article, only: [:show]
 
   def index
