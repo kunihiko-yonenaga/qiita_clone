@@ -51,4 +51,15 @@ RSpec.describe "Articles", type: :request do
       end
     end
   end
+
+  describe "POST /articles" do
+    subject { post(articles_path(params: params)) }
+    let(:params) { { article: attributes_for(:article) } }
+    let(:current_user) { create(:user) }
+
+    it "記事作成できる" do
+      expect { subject }.to change { Article.count }.by(1)
+      expect(response).to have_http_status(204)
+    end
+  end
 end

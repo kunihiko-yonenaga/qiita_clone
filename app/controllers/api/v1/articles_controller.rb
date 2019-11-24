@@ -20,4 +20,8 @@ class Api::V1::ArticlesController < Api::V1::BaseApiController
     def set_article
       @article = Article.find(params[:id])
     end
+
+    def article_params
+      params.require(:article).permit(:title, :body)
+    end
 end
