@@ -4,7 +4,7 @@ RSpec.describe Article, type: :model do
   describe "title-validation check" do
     context "タイトルが５文字以上50文字以下のとき" do
       let(:article) { build(:article) }
-      it "バリデーションがとおる" do
+      it "バリデーションが通る" do
         expect(article).to be_valid
       end
     end
@@ -33,14 +33,14 @@ RSpec.describe Article, type: :model do
     describe "body-validation check" do
       context "記事が書かれているとき" do
         let(:article) { build(:article) }
-        it "バリデーションがとおる" do
+        it "バリデーションが通る" do
           expect(article).to be_valid
         end
       end
 
       context "記事が書かれていないとき" do
         let(:article) { build(:article, title: nil) }
-        it "バリデーションがとおらない" do
+        it "バリデーションが通らない" do
           expect(article).not_to be_valid
         end
       end
