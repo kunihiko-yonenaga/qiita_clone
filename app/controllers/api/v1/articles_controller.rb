@@ -12,7 +12,6 @@ class Api::V1::ArticlesController < Api::V1::BaseApiController
 
   def create
     article = current_user.articles.create!(article_params)
-    binding.pry
     render json: article
   end
 
