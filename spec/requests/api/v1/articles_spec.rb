@@ -52,7 +52,7 @@ RSpec.describe "Articles", type: :request do
     end
   end
 
-  fdescribe "POST /articles" do
+  describe "POST /articles" do
     subject { post(api_v1_articles_path(params: params)) }
     let(:params) { { article: attributes_for(:article) } }
     let(:current_user) { create(:user) }
