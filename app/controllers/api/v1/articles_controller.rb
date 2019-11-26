@@ -2,7 +2,7 @@ class Api::V1::ArticlesController < Api::V1::BaseApiController
   before_action :set_article, only: [:show]
 
   def index
-    articles = Article.all
+    @articles = Article.all
     render json: articles
   end
 
@@ -12,6 +12,7 @@ class Api::V1::ArticlesController < Api::V1::BaseApiController
 
   def create
     article = current_user.articles.create!(article_params)
+    binding.pry
     render json: article
   end
 

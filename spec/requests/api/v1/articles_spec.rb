@@ -57,9 +57,16 @@ RSpec.describe "Articles", type: :request do
     let(:params) { { article: attributes_for(:article) } }
     let(:current_user) { create(:user) }
 
+    before do
+      allow_any_instance_of(Api::V1::BaseApiController).to receive(:current_user).and_return(current_user)
+    end
+
     it "記事作成できる" do
       expect { subject }.to change { Article.count }.by(1)
       expect(response).to have_http_status(204)
+      res = JSON.parse(response.body)
+      expect(res["title"]).to eq params[:article][:title]
+      expect(res["body"]).to eq params[:article][:body]
     end
   end
 end
