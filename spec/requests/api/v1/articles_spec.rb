@@ -54,6 +54,7 @@ RSpec.describe "Articles", type: :request do
 
   describe "POST /articles" do
     subject { post(api_v1_articles_path(params: params)) }
+
     let(:params) { { article: attributes_for(:article) } }
     let(:current_user) { create(:user) }
 
@@ -63,7 +64,7 @@ RSpec.describe "Articles", type: :request do
 
     it "記事作成できる" do
       expect { subject }.to change { Article.count }.by(1)
-      expect(response).to have_http_status(204)
+      expect(response).to have_http_status(:no_content)
       res = JSON.parse(response.body)
       expect(res["title"]).to eq params[:article][:title]
       expect(res["body"]).to eq params[:article][:body]
@@ -79,8 +80,8 @@ RSpec.describe "Articles", type: :request do
 
     it "articleのレコード更新ができる" do
       expect { subject }.to change { Article.find(article.id).title }.from(article.title).to(params[:article][:title]) &
-                              change { Article.find(article.id).body }.from(article.body).to(params[:article][:body])
-        expect(response).to have_http_status(:ok)
+                            change { Article.find(article.id).body }.from(article.body).to(params[:article][:body])
+      expect(response).to have_http_status(:ok)
     end
   end
 
@@ -92,10 +93,8 @@ RSpec.describe "Articles", type: :request do
     before { allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(current_user) }
 
     it "articleのレコードを削除できる" do
-       expect { subject }.to change { current_user.articles.count }.by(-1)
-       expect(response).to have_http_status(:success)
+      expect { subject }.to change { current_user.articles.count }.by(-1)
+      expect(response).to have_http_status(:success)
     end
   end
-
-
 end
