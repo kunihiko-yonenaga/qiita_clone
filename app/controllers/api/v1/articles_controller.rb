@@ -16,12 +16,16 @@ class Api::V1::ArticlesController < Api::V1::BaseApiController
   end
 
   def update
-    @article.update!(article_params)
-    render json: @article
+    if @article.user_id == current_user.id
+      @article.update!(article_params)
+      render json: @article
+    end
   end
 
   def destroy
-    @article.destroy!
+    if @article.user_id == current_user.id
+      @article.destroy!
+    end
   end
 
   private
