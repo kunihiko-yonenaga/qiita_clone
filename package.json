@@ -2,9 +2,11 @@
   "name": "qiita_clone",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^4.0.7"
+    "@rails/webpacker": "^4.2.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.2"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.9.0"
   }
 }
