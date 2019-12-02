@@ -1,4 +1,4 @@
-const PnpWebpackPlugin = require("pnp-webpack-plugin")
+const PnpWebpackPlugin = require("pnp-webpack-plugin");
 
 module.exports = {
   test: /\.(ts|tsx)?(\.erb)?$/,
