@@ -1,10 +1,10 @@
 import Vue from "vue/dist/vue.esm.js";
 import VueRouter from "vue-router";
-import ArticlesContainer from "../container/ArticlesContainer.vue";
+import UsersContainer from "../container/UsersContainer.vue";
 
 Vue.use(VueRouter);
 
 export default new VueRouter({
   mode: "history",
-  routes: [{ path: "/", component: ArticlesContainer }]
+  routes: [{ path: "/", component: UsersContainer }]
 });
